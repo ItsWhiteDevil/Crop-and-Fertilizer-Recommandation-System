@@ -1,0 +1,67 @@
+templates/home.html
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Welcome to CropPredict</h1>
+        <p>Revolutionizing agriculture with predictive insights for better crop and fertilizer management.</p>
+        <a href="{{ url_for('prediction') }}" class="cta-button">Start Predicting</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="feature-grid">
+            <div class="middle">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='images/crop_image.jpg') }}" alt="Crop Image">
+                    <h2>Crop Prediction</h2>
+                    <p>Discover the best crops to plant based on your soil and weather conditions.</p>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename='images/image.avif') }}" alt="Fertilizer Image">
+                    <h2>Fertilizer Recommendation</h2>
+                    <p>Get tailored fertilizer recommendations to ensure optimal crop growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-seedling"></i>
+                <h3>Accurate Crop Prediction</h3>
+                <p>Analyze your soil and weather conditions to get the best crop recommendations.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hand-holding-water"></i>
+                <h3>Fertilizer Optimization</h3>
+                <p>Receive tailored fertilizer suggestions to maximize your yield and minimize waste.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Data-Driven Insights</h3>
+                <p>Leverage data science to make informed decisions and increase your farm's profitability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Signup -->
+<section class="newsletter-section">
+    <div class="container">
+        <h2>Stay Updated</h2>
+        <p>Sign up for our newsletter to get the latest updates and tips on smart farming.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

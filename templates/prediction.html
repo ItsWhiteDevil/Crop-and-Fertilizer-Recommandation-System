@@ -1,0 +1,90 @@
+<!-- templates/prediction.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<section class="prediction-section">
+    <div class="container">
+        <h1>Predict Your Crop and Fertilizer</h1>
+        <p>Enter your soil and weather details to get tailored recommendations.</p>
+
+        {% if error %}
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+        <form method="POST" class="prediction-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="N">Nitrogen (N):</label>
+                    <div class="input-icon">
+                        <i class="fas fa-leaf"></i>
+                        <input type="number" id="N" name="N" step="any" placeholder="Enter Nitrogen level" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="P">Phosphorus (P):</label>
+                    <div class="input-icon">
+                        <i class="fas fa-vial"></i>
+                        <input type="number" id="P" name="P" step="any" placeholder="Enter Phosphorus level" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="K">Potassium (K):</label>
+                    <div class="input-icon">
+                        <i class="fas fa-vial"></i>
+                        <input type="number" id="K" name="K" step="any" placeholder="Enter Potassium level" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="temperature">Temperature (°C):</label>
+                    <div class="input-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                        <input type="number" id="temperature" name="temperature" step="any" placeholder="Enter Temperature" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="humidity">Humidity (%):</label>
+                    <div class="input-icon">
+                        <i class="fas fa-tint"></i>
+                        <input type="number" id="humidity" name="humidity" step="any" placeholder="Enter Humidity" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ph">pH Level:</label>
+                    <div class="input-icon">
+                        <i class="fas fa-flask"></i>
+                        <input type="number" id="ph" name="ph" step="any" placeholder="Enter pH level" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rainfall">Rainfall (mm):</label>
+                <div class="input-icon1">
+                    <i class="fas fa-cloud-rain"></i>
+                    <input type="number" id="rainfall" name="rainfall" step="any" placeholder="Enter Rainfall" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">Predict Now</button>
+        </form>
+
+        {% if crop_prediction %}
+            <div class="prediction-result">
+                <h2>Prediction Results</h2>
+                <p><strong>Predicted Crop:</strong> {{ crop_prediction }}</p>
+                <p><strong>Recommended Fertilizer:</strong> {{ fertilizer_prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
